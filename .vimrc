@@ -13,6 +13,7 @@ endif
 " ================ General Config ====================
 
 set number                      "Line numbers are good
+set relativenumber              "Reltive numbers are better.
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -20,6 +21,14 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set background=dark
+set clipboard=unnamed
+colorscheme solarized
+
+function! Esig()
+  $r/home/chawkins/Dropbox/Work\ Shit/esig.txt
+endfunction
+nnoremap <C-e> :call Esig()<CR>
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -28,7 +37,6 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
-"colorscheme railscasts
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -70,6 +78,9 @@ set expandtab
 
 filetype plugin on
 filetype indent on
+
+" Load plugin installer
+"call plug#begin('~/.vim/autoload/plug.vim')
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -113,4 +124,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 " ================ Custom Settings ========================
+set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
 " so ~/.yadr/vim/settings.vim
